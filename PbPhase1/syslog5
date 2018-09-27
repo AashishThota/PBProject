@@ -1,0 +1,63 @@
+2018-09-25 14:16:21,504 INFO [main] org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+2018-09-25 14:16:21,645 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2018-09-25 14:16:21,645 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: MapTask metrics system started
+2018-09-25 14:16:21,647 INFO [main] org.apache.hadoop.mapred.YarnChild: Executing with tokens:
+2018-09-25 14:16:21,647 INFO [main] org.apache.hadoop.mapred.YarnChild: Kind: mapreduce.job, Service: job_1537906069754_0002, Ident: (org.apache.hadoop.mapreduce.security.token.JobTokenIdentifier@ffaa6af)
+2018-09-25 14:16:21,956 INFO [main] org.apache.hadoop.mapred.YarnChild: Sleeping for 0ms before retrying again. Got null now.
+2018-09-25 14:16:22,489 INFO [main] org.apache.hadoop.mapred.YarnChild: mapreduce.cluster.local.dir for child: /tmp/hadoop-aashish/nm-local-dir/usercache/aashish/appcache/application_1537906069754_0002
+2018-09-25 14:16:22,932 INFO [main] org.apache.hadoop.conf.Configuration.deprecation: session.id is deprecated. Instead, use dfs.metrics.session-id
+2018-09-25 14:16:23,514 INFO [main] org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter: File Output Committer Algorithm version is 1
+2018-09-25 14:16:23,530 INFO [main] org.apache.hadoop.mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+2018-09-25 14:16:23,605 WARN [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: Unexpected: procfs stat file is not in the expected format for process with pid 4151
+2018-09-25 14:16:23,608 WARN [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: Unexpected: procfs stat file is not in the expected format for process with pid 4376
+2018-09-25 14:16:23,761 INFO [main] org.apache.hadoop.mapred.MapTask: Processing split: hdfs://localhost:9000/PbProj/urls.txt:0+151655
+2018-09-25 14:16:24,205 INFO [main] org.apache.hadoop.mapred.MapTask: (EQUATOR) 0 kvi 26214396(104857584)
+2018-09-25 14:16:24,205 INFO [main] org.apache.hadoop.mapred.MapTask: mapreduce.task.io.sort.mb: 100
+2018-09-25 14:16:24,205 INFO [main] org.apache.hadoop.mapred.MapTask: soft limit at 83886080
+2018-09-25 14:16:24,205 INFO [main] org.apache.hadoop.mapred.MapTask: bufstart = 0; bufvoid = 104857600
+2018-09-25 14:16:24,205 INFO [main] org.apache.hadoop.mapred.MapTask: kvstart = 26214396; length = 6553600
+2018-09-25 14:16:24,211 INFO [main] org.apache.hadoop.mapred.MapTask: Map output collector class = org.apache.hadoop.mapred.MapTask$MapOutputBuffer
+2018-09-25 14:16:24,362 INFO [main] org.apache.hadoop.mapred.MapTask: Starting flush of map output
+2018-09-25 14:16:24,362 INFO [main] org.apache.hadoop.mapred.MapTask: Spilling map output
+2018-09-25 14:16:24,362 INFO [main] org.apache.hadoop.mapred.MapTask: bufstart = 0; bufend = 174987; bufvoid = 104857600
+2018-09-25 14:16:24,362 INFO [main] org.apache.hadoop.mapred.MapTask: kvstart = 26214396(104857584); kvend = 26191068(104764272); length = 23329/6553600
+2018-09-25 14:16:24,528 INFO [main] org.apache.hadoop.mapred.MapTask: Finished spill 0
+2018-09-25 14:16:24,535 INFO [main] org.apache.hadoop.mapred.Task: Task:attempt_1537906069754_0002_m_000000_0 is done. And is in the process of committing
+2018-09-25 14:16:24,604 WARN [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: Unexpected: procfs stat file is not in the expected format for process with pid 4151
+2018-09-25 14:16:24,604 WARN [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: Unexpected: procfs stat file is not in the expected format for process with pid 4376
+2018-09-25 14:16:24,659 WARN [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: Unexpected: procfs stat file is not in the expected format for process with pid 4151
+2018-09-25 14:16:24,659 WARN [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: Unexpected: procfs stat file is not in the expected format for process with pid 4376
+2018-09-25 14:16:24,708 INFO [main] org.apache.hadoop.mapred.Task: Task 'attempt_1537906069754_0002_m_000000_0' done.
+2018-09-25 14:16:24,713 INFO [main] org.apache.hadoop.mapred.Task: Final Counters for attempt_1537906069754_0002_m_000000_0: Counters: 26
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=276691
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=151757
+		HDFS: Number of bytes written=0
+		HDFS: Number of read operations=3
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=0
+	Map-Reduce Framework
+		Map input records=5833
+		Map output records=5833
+		Map output bytes=174987
+		Map output materialized bytes=154917
+		Input split bytes=102
+		Combine input records=5833
+		Combine output records=4841
+		Spilled Records=4841
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=78
+		CPU time spent (ms)=980
+		Physical memory (bytes) snapshot=243732480
+		Virtual memory (bytes) snapshot=1926107136
+		Total committed heap usage (bytes)=177012736
+	File Input Format Counters 
+		Bytes Read=151655
+2018-09-25 14:16:24,714 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Stopping MapTask metrics system...
+2018-09-25 14:16:24,715 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: MapTask metrics system stopped.
+2018-09-25 14:16:24,715 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: MapTask metrics system shutdown complete.

@@ -1,0 +1,70 @@
+2018-09-25 14:16:29,365 INFO [main] org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+2018-09-25 14:16:29,511 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2018-09-25 14:16:29,513 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: ReduceTask metrics system started
+2018-09-25 14:16:29,519 INFO [main] org.apache.hadoop.mapred.YarnChild: Executing with tokens:
+2018-09-25 14:16:29,519 INFO [main] org.apache.hadoop.mapred.YarnChild: Kind: mapreduce.job, Service: job_1537906069754_0002, Ident: (org.apache.hadoop.mapreduce.security.token.JobTokenIdentifier@ffaa6af)
+2018-09-25 14:16:29,875 INFO [main] org.apache.hadoop.mapred.YarnChild: Sleeping for 0ms before retrying again. Got null now.
+2018-09-25 14:16:30,302 INFO [main] org.apache.hadoop.mapred.YarnChild: mapreduce.cluster.local.dir for child: /tmp/hadoop-aashish/nm-local-dir/usercache/aashish/appcache/application_1537906069754_0002
+2018-09-25 14:16:30,686 INFO [main] org.apache.hadoop.conf.Configuration.deprecation: session.id is deprecated. Instead, use dfs.metrics.session-id
+2018-09-25 14:16:31,254 INFO [main] org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter: File Output Committer Algorithm version is 1
+2018-09-25 14:16:31,271 INFO [main] org.apache.hadoop.mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+2018-09-25 14:16:31,336 WARN [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: Unexpected: procfs stat file is not in the expected format for process with pid 4151
+2018-09-25 14:16:31,337 WARN [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: Unexpected: procfs stat file is not in the expected format for process with pid 4376
+2018-09-25 14:16:31,348 INFO [main] org.apache.hadoop.mapred.ReduceTask: Using ShuffleConsumerPlugin: org.apache.hadoop.mapreduce.task.reduce.Shuffle@7e22550a
+2018-09-25 14:16:32,001 INFO [main] org.apache.hadoop.conf.Configuration.deprecation: mapred.skip.on is deprecated. Instead, use mapreduce.job.skiprecords
+2018-09-25 14:16:32,379 WARN [DataStreamer for file /PbProj/result2.txt/_temporary/1/_temporary/attempt_1537906069754_0002_r_000000_0/part-r-00000] org.apache.hadoop.hdfs.DFSClient: Caught exception 
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Thread.join(Thread.java:1252)
+	at java.lang.Thread.join(Thread.java:1326)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.closeResponder(DFSOutputStream.java:716)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.endBlock(DFSOutputStream.java:476)
+	at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:652)
+2018-09-25 14:16:32,382 INFO [main] org.apache.hadoop.mapred.Task: Task:attempt_1537906069754_0002_r_000000_0 is done. And is in the process of committing
+2018-09-25 14:16:32,446 WARN [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: Unexpected: procfs stat file is not in the expected format for process with pid 4151
+2018-09-25 14:16:32,447 WARN [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: Unexpected: procfs stat file is not in the expected format for process with pid 4376
+2018-09-25 14:16:33,469 INFO [main] org.apache.hadoop.mapred.Task: Task attempt_1537906069754_0002_r_000000_0 is allowed to commit now
+2018-09-25 14:16:33,481 INFO [main] org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter: Saved output of task 'attempt_1537906069754_0002_r_000000_0' to hdfs://localhost:9000/PbProj/result2.txt/_temporary/1/task_1537906069754_0002_r_000000
+2018-09-25 14:16:33,514 WARN [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: Unexpected: procfs stat file is not in the expected format for process with pid 4151
+2018-09-25 14:16:33,514 WARN [main] org.apache.hadoop.yarn.util.ProcfsBasedProcessTree: Unexpected: procfs stat file is not in the expected format for process with pid 4376
+2018-09-25 14:16:33,539 INFO [main] org.apache.hadoop.mapred.Task: Task 'attempt_1537906069754_0002_r_000000_0' done.
+2018-09-25 14:16:33,543 INFO [main] org.apache.hadoop.mapred.Task: Final Counters for attempt_1537906069754_0002_r_000000_0: Counters: 32
+	File System Counters
+		FILE: Number of bytes read=154917
+		FILE: Number of bytes written=276636
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=0
+		HDFS: Number of bytes written=135570
+		HDFS: Number of read operations=3
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Map-Reduce Framework
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=4841
+		Reduce shuffle bytes=154917
+		Reduce input records=4841
+		Reduce output records=4841
+		Spilled Records=4841
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=58
+		CPU time spent (ms)=1060
+		Physical memory (bytes) snapshot=141123584
+		Virtual memory (bytes) snapshot=1934991360
+		Total committed heap usage (bytes)=119668736
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Output Format Counters 
+		Bytes Written=135570
+2018-09-25 14:16:33,547 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Stopping ReduceTask metrics system...
+2018-09-25 14:16:33,547 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: ReduceTask metrics system stopped.
+2018-09-25 14:16:33,547 INFO [main] org.apache.hadoop.metrics2.impl.MetricsSystemImpl: ReduceTask metrics system shutdown complete.
