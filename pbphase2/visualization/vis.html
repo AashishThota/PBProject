@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/pie.js"></script>
+    <script src="https://www.amcharts.com/lib/3/funnel.js"></script>
+    <script src="https://www.amcharts.com/lib/3/xy.js"></script>
+    <script src="https://www.amcharts.com/lib/3/radar.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js"></script>
+
+    <style>
+        h1{
+            ont-size: 40px;
+            color: white;
+            margin-left: 300px;
+        }
+        body{
+            background-color: #26435f;
+        }
+        .btn{
+            margin-left: 100px;
+            margin-right: 250px;
+            margin-top:20px;
+        }
+        .collapse{
+            background-color: #adc5db;
+            border-radius: 20px;
+            margin-top: -480px;
+        }
+        .amcharts-export-menu-top-right {
+            top: 10px;
+            right: 0;
+        }
+        #chartdiv1,#chartdiv2,#chartdiv3,#chartdiv4,#chartdiv5,#chartdiv6,#chartdiv7,#chartdiv8,#chartdiv9,#chartdiv10 {
+            width: 70%;
+            height: 450px;
+            margin-left:230px;
+        }
+
+    </style>
+</head>
+<body>
+<h1>TWITTER DATA ANALYSIS</h1>
+<button type="button" class="btn btn-info"  onclick="chartdiv(1)">Query1</button>
+<br>
+<button type="button" class="btn btn-info"  onclick="chartdiv(2)">Query2</button>
+<br>
+<button type="button" class="btn btn-info"  onclick="chartdiv(3)">Query3</button>
+<br>
+<button type="button" class="btn btn-info"  onclick="chartdiv(4)">Query4</button>
+<br>
+<button type="button" class="btn btn-info"  onclick="chartdiv(5)">Query5</button>
+<br>
+<button type="button" class="btn btn-info"  onclick="chartdiv(6)">Query6</button>
+<br>
+<button type="button" class="btn btn-info"  onclick="chartdiv(7)">Query7</button>
+<br>
+<button type="button" class="btn btn-info"  onclick="chartdiv(8)">Query8</button>
+<br>
+<button type="button" class="btn btn-info"  onclick="chartdiv(9)">Query9</button>
+<br>
+<button type="button" class="btn btn-info"  onclick="chartdiv(10)">Query10</button>
+<br>
+
+
+<div id="chartdiv1" class="collapse"></div>
+<div id="chartdiv2" class="collapse"></div>
+<div id="chartdiv3" class="collapse"></div>
+<div id="chartdiv4" class="collapse"></div>
+<div id="chartdiv5" class="collapse"></div>
+<div id="chartdiv6" class="collapse"></div>
+<div id="chartdiv7" class="collapse"></div>
+<div id="chartdiv8" class="collapse"></div>
+<div id="chartdiv9" class="collapse"></div>
+<div id="chartdiv10" class="collapse"></div>
+
+
+
+
+</body>
+<script>
+    function chartdiv(id) {
+        console.log("id")
+        console.log(id)
+        for(i=1;i<=10;i++){
+            if(id.toString() == i.toString())
+                document.getElementById('chartdiv'+i).style.display = "block"
+            else
+                document.getElementById('chartdiv'+i).style.display = "none"
+        }
+    }
+    AmCharts.loadFile( "./query1.csv", {}, function( response ) {
+        var data = AmCharts.parseCSV( response, {
+            "useColumnNames": true
+        } );
+        console.log(data);
+        var chart1 = AmCharts.makeChart( "chartdiv1", {
+            "type": "pie",
+            "theme": "light",
+            "titles": [ {
+                "text": "Query1:Number of Tweets by Top 11 verified users",
+                "size": 16
+            } ],
+            "dataProvider": data,
+            "valueField": "tweets",
+            "titleField": "USER",
+            "startEffect": "elastic",
+            "startDuration": 2,
+            "labelRadius": 15,
+            "innerRadius": "50%",
+            "depth3D": 10,
+            "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+            "angle": 15,
+            "export": {
+                "enabled": true
+            }
+        } );
+    });
+
+    AmCharts.loadFile( "./query2.csv", {}, function( response ) {
+        var data = AmCharts.parseCSV( response, {
+            "useColumnNames": true
+        } );
+        console.log(data);
+        var chart2 = AmCharts.makeChart( "chartdiv2", {
+            "type": "funnel",
+            "theme": "light",
+            "titles": [ {
+                "text": "Query2:Tweets from top 20 locations ",
+                "size": 16
+            } ],
+            "dataProvider": data,
+            "titleField": "LOCATION",
+            "marginRight": 160,
+            "marginLeft": 15,
+            "labelPosition": "right",
+            "funnelAlpha": 0.9,
+            "valueField": "number_of_tweets",
+            "startX": 0,
+            "neckWidth": "40%",
+            "startAlpha": 0,
+            "outlineThickness": 1,
+            "neckHeight": "30%",
+            "balloonText": "[[title]]:<b>[[value]]</b>",
+            "export": {
+                "enabled": true
+            }
+        } );
+    });
+
+    AmCharts.loadFile( "./query3.csv", {}, function( response ) {
+        var data = AmCharts.parseCSV( response, {
+            "useColumnNames": true
+        } );
+        console.log(data);
+        var chart3 = AmCharts.makeChart( "chartdiv3", {
+            "type": "funnel",
+            "theme": "light",
+            "titles": [ {
+                "text": "Query3:Number of Tweets about top 5 characters",
+                "size": 16
+            } ],
+            "dataProvider": data,
+            "balloon": {
+                "fixedPosition": true
+            },
+            "valueField": "tweets",
+            "titleField": "Characters",
+            "marginRight": 240,
+            "marginLeft": 50,
+            "startX": -500,
+            "depth3D": 100,
+            "angle": 40,
+            "outlineAlpha": 1,
+            "outlineColor": "#FFFFFF",
+            "outlineThickness": 2,
+            "labelPosition": "right",
+            "balloonText": "[[title]]: [[value]]n[[description]]",
+            "export": {
+                "enabled": true
+            }
+        } );
+    });
+
+    AmCharts.loadFile( "./query4.csv", {}, function( response ) {
+        var data = AmCharts.parseCSV( response, {
+            "useColumnNames": true
+        } );
+        console.log(data);
+        var chart4 = AmCharts.makeChart("chartdiv4", {
+            "type": "funnel",
+            "theme": "light",
+            "titles": [ {
+                "text": "Query4:Number of tweets on different dates",
+                "size": 16
+            } ],
+            "dataProvider": data,
+            "balloon": {
+                "fixedPosition": true
+            },
+            "valueField": "tweet_count",
+            "titleField": "tweet_date",
+            "marginRight": 240,
+            "marginLeft": 50,
+            "startX": -500,
+            "depth3D": 100,
+            "angle": 40,
+            "outlineAlpha": 1,
+            "outlineColor": "#FFFFFF",
+            "outlineThickness": 2,
+            "labelPosition": "right",
+            "balloonText": "[[title]]: [[value]]n[[description]]",
+            "export": {
+                "enabled": true
+            }
+        });
+    });
+
+    AmCharts.loadFile( "./query5.csv", {}, function( response ) {
+        var data = AmCharts.parseCSV( response, {
+            "useColumnNames": true
+        } );
+        console.log(data);
+        var chart5 = AmCharts.makeChart("chartdiv5", {
+            "type": "funnel",
+            "theme": "light",
+            "titles": [ {
+                "text": "Query5:Number of tweets about all the seasons",
+                "size": 16
+            } ],
+            "dataProvider": data,
+            "balloon": {
+                "fixedPosition": true
+            },
+            "valueField": "tweet_count",
+            "titleField": "Season",
+            "marginRight": 240,
+            "marginLeft": 50,
+            "startX": -500,
+            "depth3D": 100,
+            "angle": 40,
+            "outlineAlpha": 1,
+            "outlineColor": "#FFFFFF",
+            "outlineThickness": 2,
+            "labelPosition": "right",
+            "balloonText": "[[title]]: [[value]]n[[description]]",
+            "export": {
+                "enabled": true
+            }
+        });
+    });
+    AmCharts.loadFile( "./query6.csv", {}, function( response ) {
+        var data = AmCharts.parseCSV( response, {
+            "useColumnNames": true
+        } );
+        console.log(data);
+        var chart6 = AmCharts.makeChart("chartdiv6", {
+            "type": "funnel",
+            "theme": "light",
+            "titles": [ {
+                "text": "Query6:Number of tweets tweeted from different OS Devices",
+                "size": 16
+            } ],
+            "dataProvider": data,
+            "balloon": {
+                "fixedPosition": true
+            },
+            "valueField": "tweet_count",
+            "titleField": "Device",
+            "marginRight": 240,
+            "marginLeft": 50,
+            "startX": -500,
+            "depth3D": 100,
+            "angle": 40,
+            "outlineAlpha": 1,
+            "outlineColor": "#FFFFFF",
+            "outlineThickness": 2,
+            "labelPosition": "right",
+            "balloonText": "[[title]]: [[value]]n[[description]]",
+            "export": {
+                "enabled": true
+            }
+        });
+    });
+    AmCharts.loadFile( "./query7.csv", {}, function( response ) {
+        var data = AmCharts.parseCSV( response, {
+            "useColumnNames": true
+        } );
+        console.log(data);
+        var chart7 = AmCharts.makeChart( "chartdiv7", {
+            "type": "pie",
+            "theme": "light",
+            "titles": [ {
+                "text": "Query7:Number of tweets in different languages",
+                "size": 16
+            } ],
+            "dataProvider": data,
+            "valueField": "lang_count",
+            "titleField": "lang",
+            "startEffect": "elastic",
+            "startDuration": 2,
+            "labelRadius": 15,
+            "innerRadius": "50%",
+            "depth3D": 10,
+            "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+            "angle": 15,
+            "export": {
+                "enabled": true
+            }
+        } );
+    });
+    AmCharts.loadFile( "./query8.csv", {}, function( response ) {
+        var data = AmCharts.parseCSV( response, {
+            "useColumnNames": true
+        } );
+        console.log(data);
+        var chart8 = AmCharts.makeChart("chartdiv8",  {
+            "type": "funnel",
+            "theme": "light",
+            "titles": [ {
+                "text": "Query8: Number of retweet count for top tweets",
+                "size": 16
+            } ],
+            "dataProvider": data,
+            "titleField": "id",
+            "marginRight": 160,
+            "marginLeft": 15,
+            "labelPosition": "right",
+            "funnelAlpha": 0.9,
+            "valueField": "retweet_count",
+            "startX": 0,
+            "neckWidth": "40%",
+            "startAlpha": 0,
+            "outlineThickness": 1,
+            "neckHeight": "30%",
+            "balloonText": "[[title]]:<b>[[value]]</b>",
+            "export": {
+                "enabled": true
+            }
+        });
+    });
+    AmCharts.loadFile( "./query9.csv", {}, function( response ) {
+        var data = AmCharts.parseCSV( response, {
+            "useColumnNames": true
+        } );
+        console.log(data);
+        var chart9 = AmCharts.makeChart("chartdiv9", {
+            "type": "funnel",
+            "theme": "light",
+            "titles": [ {
+                "text": "Query 9: Followers_count based on Location",
+                "size": 16
+            } ],
+            "dataProvider": data,
+            "balloon": {
+                "fixedPosition": true
+            },
+            "valueField": "followers_count",
+            "titleField": "location",
+            "marginRight": 240,
+            "marginLeft": 50,
+            "startX": -500,
+            "depth3D": 100,
+            "angle": 40,
+            "outlineAlpha": 1,
+            "outlineColor": "#FFFFFF",
+            "outlineThickness": 2,
+            "labelPosition": "right",
+            "balloonText": "[[title]]: [[value]]n[[description]]",
+            "export": {
+                "enabled": true
+            }
+        });});
+    AmCharts.loadFile( "./query10.csv", {}, function( response ) {
+        var data = AmCharts.parseCSV( response, {
+            "useColumnNames": true
+        } );
+        console.log(data);
+        var chart10 = AmCharts.makeChart("chartdiv10",  {
+            "type": "funnel",
+            "theme": "light",
+            "titles": [ {
+                "text": "Query10:Top Tweeted user based on favourite count",
+                "size": 16
+            } ],
+            "dataProvider": data,
+            "titleField": "ScreenName",
+            "marginRight": 160,
+            "marginLeft": 15,
+            "labelPosition": "right",
+            "funnelAlpha": 0.9,
+            "valueField": "Favourities",
+            "startX": 0,
+            "neckWidth": "40%",
+            "startAlpha": 0,
+            "outlineThickness": 1,
+            "neckHeight": "30%",
+            "balloonText": "[[title]]:<b>[[value]]</b>",
+            "export": {
+                "enabled": true
+            }
+        });
+
+    });
+
+</script>
+</html>
